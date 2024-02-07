@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration and Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 320px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #loginForm {
+            display: none;
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>User Registration and Login</h1>
+
+    <!-- Registration Form -->
+    <div id="registrationForm">
+        <h2>Register</h2>
+        <form action="saveReg" method="post">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email" required>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account yet? <a href="#" id="switchToRegistration">Register here</a></p>
+    </div>
+</div>
+
+<script>
+    const registrationForm = document.getElementById("registrationForm");
+    const loginForm = document.getElementById("loginForm");
+    const switchToLoginLink = document.getElementById("switchToLogin");
+    const switchToRegistrationLink = document.getElementById("switchToRegistration");
+
+    switchToLoginLink.addEventListener("click", () => {
+        registrationForm.style.display = "none";
+        loginForm.style.display = "block";
+    });
+
+    switchToRegistrationLink.addEventListener("click", () => {
+        loginForm.style.display = "none";
+        registrationForm.style.display = "block";
+    });
+</script>
+</body>
+</html>
